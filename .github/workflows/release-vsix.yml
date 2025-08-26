@@ -124,29 +124,29 @@ jobs:
             echo "chatAPI=${{ secrets.TOOLING_TEAM_CHAT_API }}" >> $GITHUB_OUTPUT
           fi
   
-      - name: Create a release in wso2/ballerina-vscode repo
+      - name: Create a release in kplntest/ballerina-vscode repo
         if: ${{ github.event.inputs.ballerina == 'true' }}
         uses: ./.github/actions/release
         with:
-          repo: wso2/ballerina-vscode
+          repo: kplntest/ballerina-vscode
           name: ballerina
           token: ${{ secrets.CHOREO_BOT_TOKEN }}
           chatAPI: ${{ steps.chat.outputs.chatAPI }}
   
-      - name: Create a release in wso2/product-ballerina-integrator repo
+      - name: Create a release in kplntest/product-ballerina-integrator repo
         if: ${{ github.event.inputs.bi == 'true' }}
         uses: ./.github/actions/release
         with:
-          repo: wso2/product-ballerina-integrator
+          repo: kplntest/product-ballerina-integrator
           name: ballerina-integrator
           token: ${{ secrets.CHOREO_BOT_TOKEN }}
           chatAPI: ${{ steps.chat.outputs.chatAPI }}
           
-      - name: Create a release in wso2/platform-vscode repo
+      - name: Create a release in kplntest/platform-vscode repo
         if: ${{ github.event.inputs.wso2-platform == 'true' }}
         uses: ./.github/actions/release
         with:
-          repo: wso2/platform-vscode
+          repo: kplntest/platform-vscode
           name: wso2-platform
           token: ${{ secrets.CHOREO_BOT_TOKEN }}
           chatAPI: ${{ steps.chat.outputs.chatAPI }}
