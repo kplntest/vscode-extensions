@@ -129,7 +129,7 @@ jobs:
           fi
 
       - name: Trigger external repo workflow for ballerina-integrator
-        if: ${{ github.event.inputs.extension == 'ballerina-integrator' && (github.event.inputs.vscode == 'true' || github.event.inputs.openVSX == 'true') && (steps.repo.outputs.repo == '' || steps.create_release.outputs.release_created == 'true') }}
+        if: ${{ github.event.inputs.extension == 'ballerina-integrator' && (steps.repo.outputs.repo == '' || steps.create_release.outputs.release_created == 'true') }}
         run: |
           echo "Triggering external repository workflow for ballerina-integrator v${{ steps.vsix.outputs.version }}"
           
